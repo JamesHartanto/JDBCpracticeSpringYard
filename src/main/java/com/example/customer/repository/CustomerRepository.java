@@ -7,7 +7,6 @@ import java.util.List;
 /**
  * Created by JamesHartanto on 8/3/17.
  */
-@Repository
 public interface CustomerRepository {
     void addCustomer(Customer customer);
     void updateCustomer(Customer customer);
