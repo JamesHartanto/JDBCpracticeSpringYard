@@ -60,9 +60,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 //        for (int x = 0; x < id.size(); x = x + 1){
 //            deleteCustomer(x);
 //        }
-        for (int ids : id){
-            deleteCustomer(ids);
-        }
+        id.forEach(this::deleteCustomer);
     }
 
 
