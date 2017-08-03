@@ -2,6 +2,7 @@ package com.example.customer.service;
 
 import com.example.customer.model.Customer;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,24 @@ public class CustomerServiceTest {
         customerService.addCustomer(customer3);
 
         Assert.assertEquals(customerService.getAllCustomer().size(),3);
+    }
+
+    @Test
+    public void testUpdate(){
+        Customer customer = new Customer();
+        customer.setFirstName("Bill");
+        customer.setLastName("Last");
+        customer.setPhone("1");
+        customer.setEmail("Zap");
+
+        customerService.addCustomer(customer);
+
+        customer.setFirstName("Bob");
+        customer.setLastName("Bob");
+        customer.setPhone("huh");
+        customer.setEmail("Bill");
+
+        customerService.updateCustomer(customer);
+        Assert.assertEquals(customerService.getByIdCustomer(6).getFirstName(),"Bob");
     }
 }
